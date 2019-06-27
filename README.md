@@ -1,2 +1,2 @@
-# Emotion_recognition
-情感识别
+# 环境说明
+opencv2以上加openblas即可
