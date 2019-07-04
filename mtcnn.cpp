@@ -708,13 +708,13 @@ void mtcnn::findFace(Mat &image){
             //cout << width/distance <<endl;
         }
     }
-
-    if(width/distance < 3.1){
-        putText(image,"[State]: Happy",Point(50,60),FONT_HERSHEY_SIMPLEX,1,Scalar(0,0,255),4,8);//在图片上写文字
+    vector<struct Bbox>::iterator it1=thirdBbox_.begin();
+    if(width/distance < 3.0){
+        putText(image,"[State]: Happy",Point((*it1).y1, (*it1).x1+15),FONT_HERSHEY_SIMPLEX,0.6,Scalar(0,0,255),2,8);//在图片上写文字
         color1 = 0 , color3 = 255;
     }
     else{
-        putText(image,"[State]: Normal",Point(50,60),FONT_HERSHEY_SIMPLEX,1,Scalar(0,0,255),4,8);//在图片上写文字
+        putText(image,"[State]: Normal",Point((*it1).y1, (*it1).x1+15),FONT_HERSHEY_SIMPLEX,0.6,Scalar(0,0,255),2,8);//在图片上写文字
         color1 = 255 , color3 = 0;
     }
     firstBbox_.clear();
